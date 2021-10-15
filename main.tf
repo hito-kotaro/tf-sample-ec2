@@ -96,7 +96,8 @@ resource "aws_instance" "ec2" {
   instance_type = "t2.micro"
   key_name      = var.key_name
   vpc_security_group_ids = [
-    "${aws_security_group.sg-ssh.id}"
+    "${aws_security_group.sg-ssh.id}",
+    "${aws_security_group.sg-http.id}"
   ]
   subnet_id                   = aws_subnet.subnet.id
   associate_public_ip_address = "true"
