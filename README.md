@@ -14,7 +14,7 @@
 ## git clone
 
 ```zsh
-$ git clone https://github.com/hito-kotaro/tf-sample-ansible.git
+$ git clone https://github.com/hito-kotaro/tf-sample-ec2.git
 $ cd tf-sample-ansible
 ```
 
