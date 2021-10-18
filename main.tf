@@ -1,7 +1,4 @@
-
-
 provider "aws" {
-
   region = var.region
 }
 
@@ -67,6 +64,15 @@ resource "aws_security_group" "sg-ssh" {
   tags = {
     Name = "${var.tag_name}-sg-ssh"
   }
+}
+
+resource "aws_security_group_rule" "same_sg" {
+  type              = "ingress"
+  from_port         = -1
+  to_port           = -1
+  protocol          = "-1"
+  security_group_id = aws_security_group.sg-ssh.id
+  source_security_group_id = aws_security_group.sg-ssh.id
 }
 
 resource "aws_security_group" "sg-http" {
